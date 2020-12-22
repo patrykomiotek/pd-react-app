@@ -65,10 +65,11 @@ function App() {
       </div>
       <hr />
 
-      {users.map((elem) => {
-        return <User key={elem.id} first={elem.first} last={elem.last} />;
-      })}
+      {users.map((elem) => (
+        <User key={elem.id} first={elem.first} last={elem.last} />
+      ))}
 
+      <hr />
       <Footer />
     </div>
   );
