@@ -1,21 +1,7 @@
 import './App.css';
-
-function Link(props) {
-  const { url, children } = props;
-  return <a className="Link" href={url}>{children}</a>;
-}
-
-function Menu(props) {
-  return (
-    <div className="Menu">
-      {props.children}
-    </div>
-  );
-}
-
-function Footer() {
-  return <div className="Footer">&copy; 2020 by Ja</div>;
-}
+import Link from './components/Link';
+import Menu from './components/Menu';
+import Footer from './components/Footer';
 
 function App() {
   return (
