@@ -1,16 +1,15 @@
-import { Fragment} from 'react';
 import './App.css';
 
 function Link(props) {
   const { url, children } = props;
-  return <a href={url}>{children}</a>;
+  return <a className="Link" href={url}>{children}</a>;
 }
 
 function Menu(props) {
   return (
-    <Fragment>
+    <div className="Menu">
       {props.children}
-    </Fragment>
+    </div>
   );
 }
 
