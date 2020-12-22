@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import './App.css';
 import Link from './components/Link';
@@ -21,6 +21,7 @@ function App() {
   const [surname, setSurname] = useState('O');
   const [users, setUsers] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const nameInputRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,6 +46,9 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(name, surname);
+    nameInputRef.current.style.border = '#f00 1px solid';
+    nameInputRef.current.value = '>!>!>!>!';
+
     fetch('https://a24b8d9cbdbcaaca93f2fc3eff6e913e.m.pipedream.net', { // TODO: fixme
       method: 'POST',
       body: JSON.stringify({ name, surname }),
@@ -75,7 +79,8 @@ function App() {
           <input
             type="text"
             name="name"
-            value={name}
+            ref={nameInputRef}
+            defaultValue={name}
             onChange={handleChange} />
           <input
             type="text"
