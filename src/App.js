@@ -5,6 +5,17 @@ import Link from './components/Link';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 
+const users = [
+  { id: 1, first: 'Ala', last: 'Kowalska' },
+  { id: 2, first: 'Jan', last: 'Maliniak' },
+  { id: 3, first: 'Ola', last: 'Fajna' }
+];
+
+function User(props) {
+  const { first, last } = props;
+  return <div>{first} {last}</div>;
+};
+
 function App() {
   const [name, setName] = useState('Patryk');
   const [surname, setSurname] = useState('O');
@@ -42,14 +53,22 @@ function App() {
           <input
             type="text"
             name="name"
+            value={name}
             onChange={handleChange} />
           <input
             type="text"
             name="surname"
+            value={surname}
             onChange={handleChange} />
           <input type="submit" value="Send" />
         </form>
       </div>
+      <hr />
+
+      {users.map((elem) => {
+        return <User key={elem.id} first={elem.first} last={elem.last} />;
+      })}
+
       <Footer />
     </div>
   );
