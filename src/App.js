@@ -20,13 +20,17 @@ function App() {
   const [name, setName] = useState('Patryk');
   const [surname, setSurname] = useState('O');
   const [users, setUsers] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://randomuser.me/api/?results=5')
-    .then(response => response.json())
-    .then(data => {
-      setUsers(data.results);
-    });
+    setTimeout(() => {
+      fetch('https://randomuser.me/api/?results=5')
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data.results);
+        setLoading(false);
+      });
+    }, 2000);
   }, []);
 
   const handleChange = (event) => {
@@ -74,6 +78,7 @@ function App() {
       </div>
       <hr />
 
+      {isLoading ? <h4>Loading...</h4> : null}
       {users.map((elem) => (
         <User
           key={elem.login.uuid}
