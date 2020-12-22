@@ -1,3 +1,4 @@
+import { Fragment} from 'react';
 import './App.css';
 
 function Link(props) {
@@ -5,13 +6,11 @@ function Link(props) {
   return <a href={url}>{children}</a>;
 }
 
-function Menu() {
+function Menu(props) {
   return (
-    <div className="Menu">
-      <Link url="https://onet.pl">Onet</Link>
-      <Link url="https://wp.pl">WP</Link>
-      <Link url="https://interia.pl">Interia</Link>
-    </div>
+    <Fragment>
+      {props.children}
+    </Fragment>
   );
 }
 
@@ -22,7 +21,11 @@ function Footer() {
 function App() {
   return (
     <div className="App">
-      <Menu />
+      <Menu>
+        <Link url="https://onet.pl">Onet</Link>
+        <Link url="https://wp.pl">WP</Link>
+        <Link url="https://interia.pl">Interia</Link>
+      </Menu>
       <Footer />
     </div>
   );
