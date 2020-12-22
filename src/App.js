@@ -53,6 +53,15 @@ function App() {
       }
     });
   };
+  const showIndicator = () => {
+    // {isLoading ? <h4>Loading...</h4> : null}
+    // {isLoading && <h4>Loading...</h4>}
+    if (isLoading) {
+      return <h4>Loading...</h4>;
+    }
+    return null;
+  };
+
   return (
     <div className="App">
       <Menu>
@@ -78,7 +87,7 @@ function App() {
       </div>
       <hr />
 
-      {isLoading ? <h4>Loading...</h4> : null}
+      {showIndicator()}
       {users.map((elem) => (
         <User
           key={elem.login.uuid}
