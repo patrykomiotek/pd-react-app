@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.css';
 import Link from './components/Link';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 
-const users = [
-  { id: 1, first: 'Ala', last: 'Kowalska' },
-  { id: 2, first: 'Jan', last: 'Maliniak' },
-  { id: 3, first: 'Ola', last: 'Fajna' }
-];
+// const users = [
+//   { id: 1, first: 'Ala', last: 'Kowalska' },
+//   { id: 2, first: 'Jan', last: 'Maliniak' },
+//   { id: 3, first: 'Ola', last: 'Fajna' }
+// ];
 
 function User(props) {
   const { first, last } = props;
@@ -19,6 +19,15 @@ function User(props) {
 function App() {
   const [name, setName] = useState('Patryk');
   const [surname, setSurname] = useState('O');
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://randomuser.me/api/?results=5')
+    .then(response => response.json())
+    .then(data => {
+      setUsers(data.results);
+    });
+  }, []);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -66,7 +75,10 @@ function App() {
       <hr />
 
       {users.map((elem) => (
-        <User key={elem.id} first={elem.first} last={elem.last} />
+        <User
+          key={elem.login.uuid}
+          first={elem.name.first}
+          last={elem.name.last} />
       ))}
 
       <hr />
