@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
 
+import api from '../../api';
+
 function Contact() {
   const [name, setName] = useState('Patryk');
   const [surname, setSurname] = useState('O');
@@ -24,13 +26,18 @@ function Contact() {
     if (name === '') {
       nameInputErrorLabelRef.current.style.display = 'block';
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/users.json`, { // TODO: fixme
-        method: 'POST',
-        body: JSON.stringify({ name, surname }),
-        headers: {
-          'Content-type': 'application/json'
-        }
+      api.post('/users', {
+        name,
+        surname
       });
+
+      // fetch(`${process.env.REACT_APP_API_URL}/users.json`, { // TODO: fixme
+      //   method: 'POST',
+      //   body: JSON.stringify({ name, surname }),
+      //   headers: {
+      //     'Content-type': 'application/json'
+      //   }
+      // });
     }
   };
 

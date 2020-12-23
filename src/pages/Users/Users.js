@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import User from '../../components/User';
 import api from '../../api';
+import { objectToArray } from '../../utils';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -11,12 +12,7 @@ function Users() {
     setTimeout(() => {
       api.get('/users')
       .then(data => {
-        const users = [];
-        Object.entries(data).forEach(elem => {
-          const user = { id: elem[0], ...elem[1] };
-          users.push(user);
-        });
-
+        const users = objectToArray(data);
         setUsers(users);
         setLoading(false);
       });
