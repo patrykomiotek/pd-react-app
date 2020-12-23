@@ -9,7 +9,7 @@ function Users() {
 
   useEffect(() => {
     setTimeout(() => {
-      api.get('/users.json')
+      api.get('/users')
       .then(data => {
         const users = [];
         Object.entries(data).forEach(elem => {

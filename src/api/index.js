@@ -10,7 +10,7 @@ function request(method, endpoint, data = null) {
     config.body = JSON.stringify(data);
   }
   return fetch(
-      `${process.env.REACT_APP_API_URL}${endpoint}`,
+      `${process.env.REACT_APP_API_URL}${endpoint}.json`,
       config
     )
     .then(response => response.json());
