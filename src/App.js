@@ -1,5 +1,12 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
-import Menu, { Link } from './components/Menu';
+import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Users from './pages/Users';
 import Home from './pages/Home';
@@ -8,15 +15,19 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <div className="App">
-      <Menu>
-        <Link url="https://onet.pl">Onet</Link>
-        <Link url="https://wp.pl">WP</Link>
-        <Link url="https://interia.pl">Interia</Link>
-      </Menu>
-      <hr />
-      <Contact />
-      <Users />
-      <Home />
+      <Router>
+        <Menu>
+          <Link to="/" className="Link">Home</Link>
+          <Link to="/users" className="Link">Users</Link>
+          <Link to="/contact" className="Link">Contact</Link>
+        </Menu>
+        <hr />
+        <Switch>
+          <Route path="/users"><Users /></Route>
+          <Route path="/contact"><Contact /></Route>
+          <Route path="/" exact><Home /></Route>
+        </Switch>
+      </Router>
       <hr />
       <Footer />
     </div>
