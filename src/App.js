@@ -4,17 +4,8 @@ import './App.css';
 import Link from './components/Link';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
+import User from './components/User';
 
-// const users = [
-//   { id: 1, first: 'Ala', last: 'Kowalska' },
-//   { id: 2, first: 'Jan', last: 'Maliniak' },
-//   { id: 3, first: 'Ola', last: 'Fajna' }
-// ];
-
-function User(props) {
-  const { first, last } = props;
-  return <div>{first} {last}</div>;
-};
 
 function App() {
   const [name, setName] = useState('Patryk');
