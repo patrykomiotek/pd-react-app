@@ -27,6 +27,10 @@ function Users() {
     return null;
   };
 
+  const handleRemove = (event, id) => {
+    console.log('id: ', id);
+  };
+
   return (
     <div>
       {showIndicator()}
@@ -41,6 +45,8 @@ function Users() {
           <Link to={`/users/${elem.id}/update`}>
             Edit
           </Link>
+          {' '}
+          <span onClick={(event) => handleRemove(event, elem.id)}>Remove</span>
         </div>
       ))}
     </div>
