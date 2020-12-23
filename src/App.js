@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 import './App.css';
-import Link from './components/Link';
+import { Link } from './components/Menu';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import User from './components/User';
