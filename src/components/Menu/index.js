@@ -1,5 +1,10 @@
-import Menu from './Menu';
-import Link from './Link';
+// barrels
+export { default } from './Menu';
+export { default as Link } from './Link';
 
-export { Link };
-export default Menu;
+// import Menu from './Menu';
+// import Link from './Link';
+// import Logo from './Logo';
+
+// export { Link, Logo };
+// export default Menu;
