@@ -31,11 +31,17 @@ function Users() {
     <div>
       {showIndicator()}
       {users.map((elem) => (
-        <Link key={elem.id} to={`/users/${elem.id}`}>
-          <User
-            first={elem.name}
-            last={elem.surname} />
-        </Link>
+        <div key={elem.id}>
+          <Link to={`/users/${elem.id}`}>
+            <User
+              first={elem.name}
+              last={elem.surname} />
+          </Link>
+          {' '}
+          <Link to={`/users/${elem.id}/update`}>
+            Edit
+          </Link>
+        </div>
       ))}
     </div>
   );

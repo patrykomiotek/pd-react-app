@@ -10,6 +10,7 @@ import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Users from './pages/Users';
 import UserDetails from './pages/Users/UserDetails';
+import UserUpdate from './pages/Users/UserUpdate';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 
@@ -24,6 +25,7 @@ function App() {
         </Menu>
         <hr />
         <Switch>
+          <Route path="/users/:bizon/update"><UserUpdate /></Route>
           <Route path="/users/:bizon"><UserDetails /></Route>
           <Route path="/users"><Users /></Route>
           <Route path="/contact"><Contact /></Route>

@@ -1,6 +1,6 @@
 function User(props) {
   const { first, last } = props;
-  return <div>{first} {last}</div>;
+  return <span>{first} {last}</span>;
 };
 
 export default User;
