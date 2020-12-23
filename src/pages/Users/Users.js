@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import User from '../../components/User';
+import api from '../../api';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -8,8 +9,7 @@ function Users() {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch(`${process.env.REACT_APP_API_URL}/users.json`)
-      .then(response => response.json())
+      api.get('/users.json')
       .then(data => {
         const users = [];
         Object.entries(data).forEach(elem => {
