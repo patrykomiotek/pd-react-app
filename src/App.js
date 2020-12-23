@@ -4,7 +4,7 @@ import './App.css';
 import Menu, { Link } from './components/Menu';
 import Footer from './components/Footer';
 import User from './components/User';
-
+import Home from './pages/Home';
 
 function App() {
   const [name, setName] = useState('Patryk');
@@ -94,6 +94,8 @@ function App() {
         </form>
       </div>
       <hr />
+
+      <Home />
 
       {showIndicator()}
       {users.map((elem) => (
