@@ -8,10 +8,16 @@ function Users() {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('https://randomuser.me/api/?results=5')
+      fetch(`${process.env.REACT_APP_API_URL}/users.json`)
       .then(response => response.json())
       .then(data => {
-        setUsers(data.results);
+        const users = [];
+        Object.entries(data).forEach(elem => {
+          const user = { id: elem[0], ...elem[1] };
+          users.push(user);
+        });
+
+        setUsers(users);
         setLoading(false);
       });
     }, 2000);
@@ -31,9 +37,9 @@ function Users() {
       {showIndicator()}
       {users.map((elem) => (
         <User
-          key={elem.login.uuid}
-          first={elem.name.first}
-          last={elem.name.last} />
+          key={elem.id}
+          first={elem.name}
+          last={elem.surname} />
       ))}
     </div>
   );
