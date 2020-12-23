@@ -24,7 +24,7 @@ function Contact() {
     if (name === '') {
       nameInputErrorLabelRef.current.style.display = 'block';
     } else {
-      fetch('https://a24b8d9cbdbcaaca93f2fc3eff6e913e.m.pipedream.net', { // TODO: fixme
+      fetch(`${process.env.REACT_APP_API_URL}/users.json`, { // TODO: fixme
         method: 'POST',
         body: JSON.stringify({ name, surname }),
         headers: {
