@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 
 import Users from './Users';
 import api from '../../api';
@@ -18,6 +18,7 @@ function UserUpdate() {
   const [userName, setUserName, handleNameChange] = useInput('');
   const [userSurname, setUserSurname, handleSurnameChange] = useInput('');
   const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     api.get(`/users/${params.bizon}`)
@@ -30,7 +31,8 @@ function UserUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // api call to save data
-    api.patch(`/users/${params.bizon}`, { name: userName, surname: userSurname });
+    api.patch(`/users/${params.bizon}`, { name: userName, surname: userSurname }) // API
+    .then(() => history.push(`/users/${params.bizon}`)); // Browser router
   };
 
   return (
