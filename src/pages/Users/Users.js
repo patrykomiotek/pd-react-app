@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import User from '../../components/User';
 import api from '../../api';
@@ -9,14 +10,12 @@ function Users() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      api.get('/users')
-      .then(data => {
-        const users = objectToArray(data);
-        setUsers(users);
-        setLoading(false);
-      });
-    }, 2000);
+    api.get('/users')
+    .then(data => {
+      const users = objectToArray(data);
+      setUsers(users);
+      setLoading(false);
+    });
   }, []);
 
   const showIndicator = () => {
@@ -32,10 +31,11 @@ function Users() {
     <div>
       {showIndicator()}
       {users.map((elem) => (
-        <User
-          key={elem.id}
-          first={elem.name}
-          last={elem.surname} />
+        <Link key={elem.id} to={`/users/${elem.id}`}>
+          <User
+            first={elem.name}
+            last={elem.surname} />
+        </Link>
       ))}
     </div>
   );
