@@ -17,6 +17,7 @@ npm run eject
 
 ### Before yo will begin with React
 * [JavaScript to know for React](https://kentcdodds.com/blog/javascript-to-know-for-react)
+* [What's new JavaScript (ES2020)](https://www.freecodecamp.org/news/javascript-new-features-es2020/)
 
 ### Chrome extensions
 * [JSON View Chrome Extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=pl)
