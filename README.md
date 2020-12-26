@@ -15,9 +15,11 @@ npm run eject
 
 ## Useful links
 
-### Before yo will begin with React
+### Before you will begin with React
 * [JavaScript to know for React](https://kentcdodds.com/blog/javascript-to-know-for-react)
 * [What's new JavaScript (ES2020)](https://www.freecodecamp.org/news/javascript-new-features-es2020/)
+* [NPX](https://github.com/npm/npx#readme)
+* [Create React App](https://create-react-app.dev/)
 
 ### Chrome extensions
 * [JSON View Chrome Extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=pl)
@@ -29,6 +31,8 @@ npm run eject
 * [Rendering elements](https://reactjs.org/docs/rendering-elements.html)
 * [Components and props](https://reactjs.org/docs/components-and-props.html)
 * [State and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+  * [Lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+  * [Component lifecycle method's](https://www.freecodecamp.org/news/how-to-understand-a-components-lifecycle-methods-in-reactjs-e1a609840630/)
 * [Handling events](https://reactjs.org/docs/handling-events.html)
   * [SyntheticEvent](https://pl.reactjs.org/docs/events.html)
 * [Conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
