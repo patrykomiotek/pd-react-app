@@ -11,7 +11,7 @@ function UserDetails() {
   useEffect(() => {
     api.get(`/users/${params.bizon}`)
     .then(data => setUser(data));
-  }, []);
+  }, [params.bizon]);
 
   const handleDelete = () => {
     api.delete(`/users/${params.bizon}`) // API

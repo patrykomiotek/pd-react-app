@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "editor.detectIndentation": true,
   "editor.fontLigatures": false,
-  "editor.rulers": [80],
+  "editor.rulers": [100],
   "editor.renderWhitespace": "boundary",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

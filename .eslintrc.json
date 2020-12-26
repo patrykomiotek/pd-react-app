@@ -1,6 +1,7 @@
 {
   "extends": "react-app",
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "max-len": ["error", 100]
   }
 }

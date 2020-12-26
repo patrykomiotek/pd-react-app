@@ -26,7 +26,7 @@ function UserUpdate() {
       setUserName(data.name);
       setUserSurname(data.surname);
     });
-  }, [params.bizon]);
+  }, [params.bizon, setUserName, setUserSurname]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
