@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 
 import api from '../../api';
+import Button from '../../components/Button';
 
 function Contact() {
   const [name, setName] = useState('Patryk');
@@ -60,12 +61,14 @@ function Contact() {
             name="surname"
             value={surname}
             onChange={handleChange} />
-          <input
+          <Button
             type="submit"
-            value="Send"
             ref={buttonRef}
             onMouseOver={() => buttonRef.current.style.backgroundColor = '#00f'}
-            onMouseOut={() => buttonRef.current.style.backgroundColor = '#0f0'} />
+            onMouseOut={() => buttonRef.current.style.backgroundColor = '#0f0'}>
+            Send me
+          </Button>
+
         </form>
     </div>
   );
