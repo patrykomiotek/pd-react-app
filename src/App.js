@@ -13,6 +13,7 @@ import UserDetails from './pages/Users/UserDetails';
 import UserUpdate from './pages/Users/UserUpdate';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
+import Counter from './components/Counter';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Link to="/" className="Link">Home</Link>
           <Link to="/users" className="Link">Users</Link>
           <Link to="/contact" className="Link">Contact</Link>
+          <Link to="/counter" className="Link">Counter</Link>
         </Menu>
         <hr />
         <Switch>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/users/:bizon"><UserDetails /></Route>
           <Route path="/users"><Users /></Route>
           <Route path="/contact"><Contact /></Route>
+          <Route path="/counter"><Counter /></Route>
           <Route path="/" exact><Home /></Route>
         </Switch>
       </Router>
