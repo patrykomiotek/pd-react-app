@@ -9,7 +9,7 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]); // list of users
   const [filterValue, setFilterValue] = useState(''); // input
-  const [filtersApplied, setFiltersApplied] = useState(true);
+  const [filtersApplied, setFiltersApplied] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,12 +31,11 @@ function Users() {
   const handleFilterValue = (event) => {
     const nameValue = event.target.value;
     if (nameValue !== '') {
-      setFilterValue(event.target.value);
       setFiltersApplied(true);
     } else {
       setFiltersApplied(false);
     }
-
+    setFilterValue(event.target.value);
     // fire filtering
   };
 
@@ -58,6 +57,7 @@ function Users() {
     setFiltersApplied(false);
   };
 
+  const usersToRender = filtersApplied ? filteredUsers : users;
   return (
     <div>
       {showIndicator()}
@@ -69,21 +69,10 @@ function Users() {
       </div>
 
       {/* <UserContainer /> */}
-      {filteredUsers.length > 0 ? filteredUsers.map((elem) => (
-        <div key={elem.id}>
-          <Link to={`/users/${elem.id}`}>
-            <User
-              first={elem.name}
-              last={elem.surname} />
-          </Link>
-          {' '}
-          <Link to={`/users/${elem.id}/update`}>
-            Edit
-          </Link>
-          {' '}
-          <span onClick={(event) => handleRemove(event, elem.id)}>Remove</span>
-        </div>
-      )) : users.map((elem) => (
+      {filtersApplied && !usersToRender.length && <p>No results 🙈</p>}
+      {filtersApplied && usersToRender.length > 0 && <p>{usersToRender.length} results found 👌</p>}
+
+      {usersToRender.map((elem) => (
         <div key={elem.id}>
           <Link to={`/users/${elem.id}`}>
             <User
