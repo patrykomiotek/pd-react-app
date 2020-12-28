@@ -20,8 +20,16 @@ function Users() {
     });
   }, []);
 
+  useEffect(() => {
+    const _filteredUsers = users.filter(
+      elem => elem.name.toLowerCase() === filterValue.toLowerCase()
+    );
+    setFilteredUsers(_filteredUsers);
+  }, [filterValue]);
+
   const handleFilterValue = (event) => {
     setFilterValue(event.target.value);
+    // fire filtering
   };
 
   const showIndicator = () => {
@@ -52,8 +60,21 @@ function Users() {
       </div>
 
       {/* <UserContainer /> */}
-
-      {users.map((elem) => (
+      {filteredUsers.length > 0 ? filteredUsers.map((elem) => (
+        <div key={elem.id}>
+          <Link to={`/users/${elem.id}`}>
+            <User
+              first={elem.name}
+              last={elem.surname} />
+          </Link>
+          {' '}
+          <Link to={`/users/${elem.id}/update`}>
+            Edit
+          </Link>
+          {' '}
+          <span onClick={(event) => handleRemove(event, elem.id)}>Remove</span>
+        </div>
+      )) : users.map((elem) => (
         <div key={elem.id}>
           <Link to={`/users/${elem.id}`}>
             <User
