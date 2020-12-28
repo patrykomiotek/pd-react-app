@@ -1,5 +1,41 @@
+import React, { useState, useEffect } from 'react';
+
 function Home() {
-  return <h1>Hello from Home</h1>;
+  const [user, setUser] = useState({
+    name: 'Patryk',
+    surname: 'O',
+    age: 35
+  });
+
+  // with dependencies
+  // useEffect(() => {
+  //   console.log('componentDidUpdate');
+
+  //   return () => {
+  //     // clearIntervals, clear WS
+  //     // removeListener
+  //   };
+  // }, [user]);
+
+  // // with no dependencies
+  useEffect(() => {
+    console.log('componentDidMount');
+    return () => {
+      // clearIntervals, clear WS
+      // removeListener
+    };
+  }, []);
+
+  const handleChange = (event) => {
+    console.log('Hej!', event.target.value);
+    setUser({...user, name: event.target.value});
+  };
+  return (
+    <div>
+      <h1>Hello from Home, {user.name}</h1>
+      <input type="text" onChange={handleChange} />
+    </div>
+  );
 }
 
 export default Home;
@@ -17,6 +53,21 @@ export default Home;
 //   //   this.handleChange = this.handleChange.bind(this);
 //   // }
 
+//   componentDidMount() {
+//     console.log('Hi from componentDidMount');
+//     fetch('https://evil.com')
+//     .then(response => response.json())
+//     .then(data => this.setState({ name: data }))
+//   }
+
+//   componentDidUpdate(prevProps, prevState) {
+//     console.log('Hi from componentDidUpdate', prevProps, prevState);
+//   }
+
+//   componentWillUnmount() {
+//     console.log('Hi from componentWillUnmount');
+//   }
+
 //   // 3. bind using arrow functions
 //   handleChange = (event) => {
 //     console.log('Hej!', event.target.value);
@@ -33,6 +84,8 @@ export default Home;
 //     );
 //   }
 // }
+
+// export default Home;
 
 // component Home written in other ways
 // const Home = () => {
