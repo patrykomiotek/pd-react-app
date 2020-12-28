@@ -32,7 +32,6 @@ function UsersContainer({ filtersApplied, users, onRemove }) {
     </div>
   );
 }
-
 UsersContainer.propTypes = {
   filtersApplied: PropTypes.bool.isRequired,
   users: PropTypes.array.isRequired,

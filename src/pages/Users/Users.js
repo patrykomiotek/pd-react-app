@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
-import User from '../../components/Users';
 import api from '../../api';
 import { objectToArray } from '../../utils';
+import { UsersContainer } from '../../components/Users';
+// import UsersContainer from '../../components/Users/UsersContainer';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -68,7 +68,11 @@ function Users() {
         {filterValue && <button onClick={handleRemoveFilter}>Remove filter</button>}
       </div>
 
-      {/* <UsersContainer /> */}
+      <UsersContainer
+        filtersApplied={filtersApplied}
+        users={usersToRender}
+        onRemove={handleRemove}
+      />
     </div>
   );
 }
