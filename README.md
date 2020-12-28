@@ -63,6 +63,8 @@ npm run eject
 * [History](https://github.com/ReactTraining/history#readme)
 * [Firebase JS SDK](https://firebase.google.com/docs/reference/js)
 * [Firebase JS SDK for realtime database](https://firebase.google.com/docs/reference/js/firebase.database)
+* [React Hook Form](https://react-hook-form.com/)
+* [Material UI](https://material-ui.com/)
 
 ## Create React App configuration
 
