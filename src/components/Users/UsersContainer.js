@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import User from './User';
+import UserRow from './UserRow';
 
 // function UsersContainer(props) {
 //   const { filtersApplied, users, onRemove } = props;
 
-function UsersContainer({ filtersApplied, users, onRemove }) {
+function UsersContainer({ filtersApplied, users, onChange, onRemove }) {
   const results = users.length;
 
   return (
@@ -15,19 +15,12 @@ function UsersContainer({ filtersApplied, users, onRemove }) {
       {filtersApplied && results > 0 && <p>{results} results found 👌</p>}
 
       {users.map((elem) => (
-        <div key={elem.id}>
-          <Link to={`/users/${elem.id}`}>
-            <User
-              first={elem.name}
-              last={elem.surname} />
-          </Link>
-          {' '}
-          <Link to={`/users/${elem.id}/update`}>
-            Edit
-          </Link>
-          {' '}
-          <span onClick={(event) => onRemove(event, elem.id)}>Remove</span>
-        </div>
+        <UserRow
+          key={elem.id}
+          user={elem}
+          onChange={onChange}
+          onRemove={onRemove}
+        />
       ))}
     </div>
   );

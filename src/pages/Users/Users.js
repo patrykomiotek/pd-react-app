@@ -11,6 +11,7 @@ function Users() {
   const [filterValue, setFilterValue] = useState(''); // input
   const [filtersApplied, setFiltersApplied] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     api.get('/users')
@@ -57,9 +58,17 @@ function Users() {
     setFiltersApplied(false);
   };
 
+  const handleSelectedUser = (user) => (event) => {
+    // console.log(event.target.checked);
+    // console.log(user);
+    if (event.target.checked) {
+      setSelectedUser(user);
+    }
+  };
+
   const usersToRender = filtersApplied ? filteredUsers : users;
   return (
-    <div>
+    <div className="users">
       {showIndicator()}
 
       <UsersFilter
@@ -72,6 +81,7 @@ function Users() {
         filtersApplied={filtersApplied}
         users={usersToRender}
         onRemove={handleRemove}
+        onChange={handleSelectedUser}
       />
     </div>
   );
