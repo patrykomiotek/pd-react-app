@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import Users from './Users';
 
 import api from '../../api';
 
@@ -28,7 +27,6 @@ function UserDetails() {
         {user && <h1>{user.name} {user.surname}</h1>}
         <Link to="/users">&laquo; Go back</Link>
         <button onClick={handleDelete}>Remove user</button>
-        <Users />
     </div>
   );
 }

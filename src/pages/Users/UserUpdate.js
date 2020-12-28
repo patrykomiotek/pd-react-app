@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
-import Users from './Users';
 import api from '../../api';
 
 function useInput(initialValue = '') {
@@ -43,7 +42,6 @@ function UserUpdate() {
         <input type="submit" value="Submit" />
       </form>
       <Link to="/users">&laquo; Go back</Link>
-      <Users />
     </div>
   );
 }
