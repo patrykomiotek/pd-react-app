@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import PropTypes from "prop-types";
 
-const Button = forwardRef(({ children, className, ...restProps }, ref) => (
+import './styles.css';
+
+const Button = forwardRef(({ badge, children, className, ...restProps }, ref) => (
   <button
     type="button"
     ref={ref}
@@ -9,10 +11,12 @@ const Button = forwardRef(({ children, className, ...restProps }, ref) => (
     className={`Button ${className}`}
   >
     {children}
+    {badge && <span class="badge">{badge}</span>}
   </button>
 ));
 
 Button.propTypes = {
+  badge: PropTypes.number,
   children: PropTypes.node.isRequired,
   className: PropTypes.string
 };
