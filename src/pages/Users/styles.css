@@ -1,0 +1,25 @@
+.users-user-row {
+  margin: 10px 0;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.users-user-row:nth-child(odd) {
+  background: #ecf0f1;
+}
+
+.users-user-row--userName {
+  width: 60%;
+}
+
+.users-user-row--userActions {
+  width: 40%;
+  margin-left: 10px;
+  justify-content: flex-end;
+}
+
+.users-user-row--userActions a {
+  color: #2980b9;
+}

@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import api from '../../api';
 import { objectToArray } from '../../utils';
 import { UsersFilter, UsersContainer } from '../../components/Users';
-// import UsersContainer from '../../components/Users/UsersContainer';
+
+import './styles.css';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -59,8 +60,8 @@ function Users() {
   };
 
   const handleSelectedUser = (user) => (event) => {
-    // console.log(event.target.checked);
-    // console.log(user);
+    console.log(event.target.checked);
+    console.log(user);
     if (event.target.checked) {
       setSelectedUser(user);
     }
