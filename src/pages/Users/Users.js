@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import User from '../../components/User';
+import User from '../../components/Users';
 import api from '../../api';
 import { objectToArray } from '../../utils';
 

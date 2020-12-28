@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import User from './User';
 
@@ -31,5 +32,25 @@ function UsersContainer({ filtersApplied, users, onRemove }) {
     </div>
   );
 }
+
+UsersContainer.propTypes = {
+  filtersApplied: PropTypes.bool.isRequired,
+  users: PropTypes.array.isRequired,
+  onRemove: PropTypes.func
+};
+
+// users: PropTypes.arrayOf(
+//   PropTypes.shape({
+//     name: PropTypes.string,
+//     lastname: PropTypes.string,
+//     age: PropTypes.number
+//   })
+// ).isRequired
+
+// {
+//   name: String,
+//   lastname: String,
+//   age: Number
+// }
 
 export default UsersContainer;
