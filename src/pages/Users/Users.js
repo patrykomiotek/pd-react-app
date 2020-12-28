@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import api from '../../api';
 import { objectToArray } from '../../utils';
-import { UsersContainer } from '../../components/Users';
+import { UsersFilter, UsersContainer } from '../../components/Users';
 // import UsersContainer from '../../components/Users/UsersContainer';
 
 function Users() {
@@ -62,11 +62,11 @@ function Users() {
     <div>
       {showIndicator()}
 
-      {/* <UsersFilter /> */}
-      <div>
-        <input type="text" value={filterValue} onChange={handleFilterValue} />
-        {filterValue && <button onClick={handleRemoveFilter}>Remove filter</button>}
-      </div>
+      <UsersFilter
+        filterValue={filterValue}
+        onFilterChange={handleFilterValue}
+        onRemoveFilter={handleRemoveFilter}
+      />
 
       <UsersContainer
         filtersApplied={filtersApplied}
