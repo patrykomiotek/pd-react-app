@@ -9,6 +9,7 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]); // list of users
   const [filterValue, setFilterValue] = useState(''); // input
+  const [filtersApplied, setFiltersApplied] = useState(true);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +29,14 @@ function Users() {
   }, [filterValue]);
 
   const handleFilterValue = (event) => {
-    setFilterValue(event.target.value);
+    const nameValue = event.target.value;
+    if (nameValue !== '') {
+      setFilterValue(event.target.value);
+      setFiltersApplied(true);
+    } else {
+      setFiltersApplied(false);
+    }
+
     // fire filtering
   };
 
@@ -47,6 +55,7 @@ function Users() {
 
   const handleRemoveFilter = () => {
     setFilterValue('');
+    setFiltersApplied(false);
   };
 
   return (
