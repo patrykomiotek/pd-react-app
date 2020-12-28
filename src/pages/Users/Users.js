@@ -7,6 +7,8 @@ import { objectToArray } from '../../utils';
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]); // list of users
+  const [filterValue, setFilterValue] = useState(''); // input
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,6 +19,10 @@ function Users() {
       setLoading(false);
     });
   }, []);
+
+  const handleFilterValue = (event) => {
+    setFilterValue(event.target.value);
+  };
 
   const showIndicator = () => {
     // {isLoading ? <h4>Loading...</h4> : null}
@@ -31,9 +37,22 @@ function Users() {
     console.log('id: ', id);
   };
 
+  const handleRemoveFilter = () => {
+    setFilterValue('');
+  };
+
   return (
     <div>
       {showIndicator()}
+
+      {/* <UserFilter /> */}
+      <div>
+        <input type="text" value={filterValue} onChange={handleFilterValue} />
+        {filterValue && <button onClick={handleRemoveFilter}>Remove filter</button>}
+      </div>
+
+      {/* <UserContainer /> */}
+
       {users.map((elem) => (
         <div key={elem.id}>
           <Link to={`/users/${elem.id}`}>
