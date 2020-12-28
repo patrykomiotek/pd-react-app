@@ -62,31 +62,13 @@ function Users() {
     <div>
       {showIndicator()}
 
-      {/* <UserFilter /> */}
+      {/* <UsersFilter /> */}
       <div>
         <input type="text" value={filterValue} onChange={handleFilterValue} />
         {filterValue && <button onClick={handleRemoveFilter}>Remove filter</button>}
       </div>
 
-      {/* <UserContainer /> */}
-      {filtersApplied && !usersToRender.length && <p>No results 🙈</p>}
-      {filtersApplied && usersToRender.length > 0 && <p>{usersToRender.length} results found 👌</p>}
-
-      {usersToRender.map((elem) => (
-        <div key={elem.id}>
-          <Link to={`/users/${elem.id}`}>
-            <User
-              first={elem.name}
-              last={elem.surname} />
-          </Link>
-          {' '}
-          <Link to={`/users/${elem.id}/update`}>
-            Edit
-          </Link>
-          {' '}
-          <span onClick={(event) => handleRemove(event, elem.id)}>Remove</span>
-        </div>
-      ))}
+      {/* <UsersContainer /> */}
     </div>
   );
 }
