@@ -1,3 +1,5 @@
+import './styles.css';
+
 function Menu(props) {
   return (
     <div className="Menu">

@@ -1,12 +1,11 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import './App.css';
-import Menu from './components/Menu';
+import Menu, { Link } from './components/Menu';
 import Footer from './components/Footer';
 import Users from './pages/Users';
 import UserDetails from './pages/Users/UserDetails';
@@ -20,10 +19,10 @@ function App() {
     <div className="App">
       <Router>
         <Menu>
-          <Link to="/" className="Link">Home</Link>
-          <Link to="/users" className="Link">Users</Link>
-          <Link to="/contact" className="Link">Contact</Link>
-          <Link to="/counter" className="Link">Counter</Link>
+          <Link to="/">Home</Link>
+          <Link to="/users">Users</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/counter">Counter</Link>
         </Menu>
         <hr />
         <Switch>
