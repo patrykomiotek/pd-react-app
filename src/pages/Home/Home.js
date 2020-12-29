@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
+
+import {Form} from '../../components/Form';
+
+const green = '#27ae60';
+const Input = styled.input`
+  background-color: #ecf0f1;
+  color: ${green};
+  border: #2c3e50 1px solid;
+  border-radius: 5px;
+  padding: 4px;
+`;
 
 function Home() {
   const [user, setUser] = useState({
     name: 'Patryk',
     surname: 'O',
-    age: 35
+    age: 35,
   });
 
   // with dependencies
@@ -26,14 +38,16 @@ function Home() {
     };
   }, []);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     console.log('Hej!', event.target.value);
     setUser({...user, name: event.target.value});
   };
   return (
     <div>
       <h1>Hello from Home, {user.name}</h1>
-      <input type="text" onChange={handleChange} />
+      <Form>
+        <Input type="text" onChange={handleChange} />
+      </Form>
     </div>
   );
 }
