@@ -4,12 +4,18 @@ import {useForm} from 'react-hook-form';
 import {Form, TextBox, Textarea, Select, Checkbox} from '../../components/Form';
 
 function Home() {
-  const {register, handleSubmit, errors} = useForm();
+  // const {register, handleSubmit, errors} = useForm({ defaultValues: {first_name: 'Ola'}});
+  const {register, handleSubmit, errors, setValue} = useForm();
   const [user, setUser] = useState({
     name: 'Patryk',
     surname: 'O',
     age: 35,
   });
+  useEffect(() => {
+    const user = {first_name: 'Ola', last_name: 'Kowalska'};
+    Object.keys(user).forEach(prop => setValue(prop, user[prop]));
+    // setValue('first_name', 'Alandnfnsdnfsnfnsdnfnsdnfnsdnfsdnfnsnsndf', { shouldValidate: true })
+  }, []);
   const handlePingwin = data => console.log(data);
 
   // with dependencies
@@ -69,15 +75,17 @@ function Home() {
           />
         </div>
         <div>
-          <Textarea name="bio" ref={register} />
+          <Textarea name="bio" label="User biography" errors={errors} ref={register} />
         </div>
         <div>
           <Select
             name="services"
+            label="Select super value"
             items={[
               {value: 2, label: 'Two'},
               {value: 3, label: 'Three'},
             ]}
+            errors={errors}
             ref={register}
           />
         </div>
@@ -87,8 +95,8 @@ function Home() {
             elemName="terms"
             label="I agree"
             ref={register({required: 'You should accept terms'})}
+            errors={errors}
           />
-          {errors.terms && <span>{errors.terms.message}</span>}
         </div>
         <input type="submit" />
       </Form>

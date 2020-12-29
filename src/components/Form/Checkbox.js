@@ -1,11 +1,20 @@
 import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 
-const Checkbox = forwardRef(({elemName, label, className, ...restProps}, ref) => {
+const Checkbox = forwardRef(({name, elemName, label, errors, className, ...restProps}, ref) => {
   return (
     <label htmlFor={elemName}>
-      <input id={elemName} type="checkbox" className={className} {...restProps} ref={ref} />{' '}
+      <input
+        id={elemName}
+        name={name}
+        type="checkbox"
+        className={className}
+        {...restProps}
+        ref={ref}
+      />
+      {' '}
       <span>{label}</span>
+      {errors && errors[name] && <span style={{ color: '#c0392b' }}>{errors[name].message}</span>}
     </label>
   );
 });

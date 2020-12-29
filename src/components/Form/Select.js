@@ -5,15 +5,19 @@ import styled from 'styled-components';
 import colors from './colors';
 
 // [{value: 12, label: 'Label for value 12'}]
-const Select = forwardRef(({items, className, ...restProps}, ref) => {
+const Select = forwardRef(({name, label, items, errors, className, ...restProps}, ref) => {
   return (
-    <select className={className} {...restProps} ref={ref}>
-      {items.map(elem => (
-        <option key={elem.value} value={elem.value}>
-          {elem.label}
-        </option>
-      ))}
-    </select>
+    <div>
+      <div><label>{label}</label></div>
+      <select name={name} className={className} {...restProps} ref={ref}>
+        {items.map(elem => (
+          <option key={elem.value} value={elem.value}>
+            {elem.label}
+          </option>
+        ))}
+      </select>
+      {errors && errors[name] && <span style={{ color: '#c0392b' }}>{errors[name].message}</span>}
+    </div>
   );
 });
 
