@@ -1,19 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import styled from 'styled-components';
 
-import {Form} from '../../components/Form';
-
-const green = '#27ae60';
-const Input = styled.input`
-  background-color: #ecf0f1;
-  color: ${green};
-  border: #2c3e50 1px solid;
-  border-radius: 5px;
-  padding: 4px;
-  ::placeholder {
-    color: #95a5a6;
-  }
-`;
+import {Form, TextBox} from '../../components/Form';
 
 function Home() {
   const [user, setUser] = useState({
@@ -49,7 +36,7 @@ function Home() {
     <div>
       <h1>Hello from Home, {user.name}</h1>
       <Form>
-        <Input type="text" onChange={handleChange} placeholder="123" />
+        <TextBox onChange={handleChange} placeholder="123" />
       </Form>
     </div>
   );
