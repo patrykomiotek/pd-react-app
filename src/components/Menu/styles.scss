@@ -10,9 +10,18 @@
   margin-right: 6px;
   text-decoration: none;
   color: #2c3e50;
+
+  &--active {
+    color: #c0392b;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: #ffff00;
+  }
 }
 
-.active {
-  color: #c0392b;
-  text-decoration: underline;
-}
+// .Link--active {
+//   color: #c0392b;
+//   text-decoration: underline;
+// }

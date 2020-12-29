@@ -8,7 +8,7 @@ const styles = {
 };
 
 function Link({ to, children  }) {
-  return <NavLink to={to} exact style={styles} activeClassName="active">{children}</NavLink>;
+  return <NavLink to={to} exact style={styles} activeClassName="Link--active">{children}</NavLink>;
   // return <NavLink to={to} exact className="Link" activeClassName="active">{children}</NavLink>;
 }
 
