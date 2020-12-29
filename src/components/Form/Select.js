@@ -7,7 +7,7 @@ import colors from './colors';
 // [{value: 12, label: 'Label for value 12'}]
 const Select = forwardRef(({items, className, ...restProps}, ref) => {
   return (
-    <select className={className} ref={ref}>
+    <select className={className} {...restProps} ref={ref}>
       {items.map(elem => (
         <option key={elem.value} value={elem.value}>
           {elem.label}

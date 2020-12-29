@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import {useForm} from 'react-hook-form';
 
 import {Form, TextBox, Textarea, Select, Checkbox} from '../../components/Form';
 
 function Home() {
+  const {register, handleSubmit} = useForm();
   const [user, setUser] = useState({
-    name: 'Patryk',
+    name: 'Pat§ryk',
     surname: 'O',
     age: 35,
   });
+  const handlePingwin = data => console.log(data);
 
   // with dependencies
   // useEffect(() => {
@@ -35,23 +38,25 @@ function Home() {
   return (
     <div>
       <h1>Hello from Home, {user.name}</h1>
-      <Form>
+      <Form onSubmit={handleSubmit(handlePingwin)}>
         <div>
-          <TextBox onChange={handleChange} placeholder="123" />
+          <TextBox name="first_name" placeholder="123" ref={register} />
         </div>
         <div>
-          <Textarea />
+          <Textarea name="bio" ref={register} />
         </div>
         <div>
           <Select
+            name="services"
             items={[
               {value: 2, label: 'Two'},
               {value: 3, label: 'Three'},
             ]}
+            ref={register}
           />
         </div>
         <div>
-          <Checkbox name="terms" label="I agree" />
+          <Checkbox name="terms" elemName="terms" label="I agree" ref={register} />
         </div>
       </Form>
     </div>
