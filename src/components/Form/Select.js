@@ -1,12 +1,13 @@
+import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import colors from './colors';
 
 // [{value: 12, label: 'Label for value 12'}]
-function Select({items, className, ...restProps}) {
+const Select = forwardRef(({items, className, ...restProps}, ref) => {
   return (
-    <select className={className}>
+    <select className={className} ref={ref}>
       {items.map(elem => (
         <option key={elem.value} value={elem.value}>
           {elem.label}
@@ -14,7 +15,7 @@ function Select({items, className, ...restProps}) {
       ))}
     </select>
   );
-}
+});
 
 Select.propTypes = {
   items: PropTypes.array.isRequired,

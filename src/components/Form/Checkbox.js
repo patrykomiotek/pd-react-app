@@ -1,12 +1,14 @@
+import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 
-function Checkbox({name, label, className, ...restProps}) {
+const Checkbox = forwardRef(({name, label, className, ...restProps}, ref) => {
   return (
     <label htmlFor={name}>
-      <input id={name} type="checkbox" className={className} {...restProps} /> <span>{label}</span>
+      <input id={name} type="checkbox" className={className} {...restProps} ref={ref} />{' '}
+      <span>{label}</span>
     </label>
   );
-}
+});
 
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,

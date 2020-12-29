@@ -1,12 +1,13 @@
+import {forwardRef} from 'react';
 import styled from 'styled-components';
 
 import colors from './colors';
 // <TextBox value="123" className="ala" />
 // <TextBox className="ola" value="123" className="ala" />
 
-function Textarea({className, ...restProps}) {
-  return <textarea className={className} {...restProps} />;
-}
+const Textarea = forwardRef(({className, ...restProps}, ref) => {
+  return <textarea className={className} {...restProps} ref={ref} />;
+});
 
 const TextareaStyled = styled(Textarea)`
   background-color: ${colors.backgroundColor};
