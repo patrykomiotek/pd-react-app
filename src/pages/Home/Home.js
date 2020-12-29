@@ -41,8 +41,17 @@ function Home() {
       <h1>Hello from Home, {user.name}</h1>
       <Form onSubmit={handleSubmit(handlePingwin)}>
         <div>
-          <TextBox name="first_name" ref={register({required: true, maxLength: 20})} />
-          {errors.first_name && <span>Error!</span>}
+          <TextBox
+            name="first_name"
+            ref={register({
+              required: 'This filed is required',
+              maxLength: {
+                value: 20,
+                message: 'You should type max 20 characters!',
+              },
+            })}
+          />
+          {errors.first_name && <span>{errors.first_name.message}</span>}
         </div>
         <div>
           <Textarea name="bio" ref={register} />
@@ -58,7 +67,13 @@ function Home() {
           />
         </div>
         <div>
-          <Checkbox name="terms" elemName="terms" label="I agree" ref={register} />
+          <Checkbox
+            name="terms"
+            elemName="terms"
+            label="I agree"
+            ref={register({required: 'You should accept terms'})}
+          />
+          {errors.terms && <span>{errors.terms.message}</span>}
         </div>
         <input type="submit" />
       </Form>
