@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {Form, TextBox} from '../../components/Form';
+import {Form, TextBox, Textarea} from '../../components/Form';
 
 function Home() {
   const [user, setUser] = useState({
@@ -36,7 +36,12 @@ function Home() {
     <div>
       <h1>Hello from Home, {user.name}</h1>
       <Form>
-        <TextBox onChange={handleChange} placeholder="123" />
+        <div>
+          <TextBox onChange={handleChange} placeholder="123" />
+        </div>
+        <div>
+          <Textarea />
+        </div>
       </Form>
     </div>
   );
