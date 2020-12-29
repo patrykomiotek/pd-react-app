@@ -42,7 +42,7 @@ function Home() {
   //   console.log('Hej!', event.target.value);
   //   setUser({...user, name: event.target.value});
   // };
-  console.log(errors);
+  // console.log(errors);
   return (
     <div>
       <h1>Hello from Home, {user.name}</h1>

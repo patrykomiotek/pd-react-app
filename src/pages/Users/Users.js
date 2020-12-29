@@ -63,8 +63,8 @@ function Users() {
   };
 
   const handleSelectedUser = (user) => (event) => {
-    console.log(event.target.checked);
-    console.log(user);
+    // console.log(event.target.checked);
+    // console.log(user);
     if (event.target.checked) {
       setSelectedUser(user);
     }
