@@ -21,9 +21,9 @@ function UserUpdate() {
 
   useEffect(() => {
     api.get(`/users/${params.bizon}`)
-    .then(data => {
-      setUserName(data.name);
-      setUserSurname(data.surname);
+    .then(response => {
+      setUserName(response.data.name);
+      setUserSurname(response.data.surname);
     });
   }, [params.bizon, setUserName, setUserSurname]);
 

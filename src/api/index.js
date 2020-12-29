@@ -1,19 +1,28 @@
+import axios from 'axios';
+
 function request(method, endpoint, data = null) {
-  const config = {
+  // const config = {
+  //   method,
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-type': 'application/json',
+  //   }
+  // };
+  // if (method === 'POST' || method === 'PATCH') {
+  //   config.body = JSON.stringify(data);
+  // }
+
+  return axios({
     method,
-    headers: {
-      'Accept': 'application/json',
-      'Content-type': 'application/json',
-    }
-  };
-  if (method === 'POST' || method === 'PATCH') {
-    config.body = JSON.stringify(data);
-  }
-  return fetch(
-      `${process.env.REACT_APP_API_URL}${endpoint}.json`,
-      config
-    )
-    .then(response => response.json());
+    url: `${process.env.REACT_APP_API_URL}${endpoint}.json`,
+    data
+  });
+
+  // return fetch(
+  //     `${process.env.REACT_APP_API_URL}${endpoint}.json`,
+  //     config
+  //   )
+  //   .then(response => response.json());
 }
 
 function get(endpoint) {

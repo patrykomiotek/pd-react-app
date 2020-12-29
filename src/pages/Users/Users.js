@@ -12,12 +12,15 @@ function Users() {
   const [filterValue, setFilterValue] = useState(''); // input
   const [filtersApplied, setFiltersApplied] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  // eslint-disable-next-line
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
+    // service.getUsers()
+    // api.getUsers()
     api.get('/users')
-    .then(data => {
-      const users = objectToArray(data);
+    .then(response => {
+      const users = objectToArray(response.data);
       setUsers(users);
       setLoading(false);
     });
@@ -28,7 +31,7 @@ function Users() {
       elem => elem.name.toLowerCase() === filterValue.toLowerCase()
     );
     setFilteredUsers(_filteredUsers);
-  }, [filterValue]);
+  }, [users, filterValue]);
 
   const handleFilterValue = (event) => {
     const nameValue = event.target.value;

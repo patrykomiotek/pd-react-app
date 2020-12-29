@@ -10,7 +10,7 @@ function UserDetails() {
 
   useEffect(() => {
     api.get(`/users/${params.bizon}`)
-    .then(data => setUser(data));
+    .then(response => setUser(response.data));
   }, [params.bizon]);
 
   useEffect(() => {

@@ -6,6 +6,7 @@ import {Form, TextBox, Textarea, Select, Checkbox} from '../../components/Form';
 function Home() {
   // const {register, handleSubmit, errors} = useForm({ defaultValues: {first_name: 'Ola'}});
   const {register, handleSubmit, errors, setValue} = useForm();
+  // eslint-disable-next-line
   const [user, setUser] = useState({
     name: 'Patryk',
     surname: 'O',
@@ -15,7 +16,7 @@ function Home() {
     const user = {first_name: 'Ola', last_name: 'Kowalska'};
     Object.keys(user).forEach(prop => setValue(prop, user[prop]));
     // setValue('first_name', 'Alandnfnsdnfsnfnsdnfnsdnfnsdnfsdnfnsnsndf', { shouldValidate: true })
-  }, []);
+  }, [setValue]);
   const handlePingwin = data => console.log(data);
 
   // with dependencies
@@ -37,10 +38,10 @@ function Home() {
     };
   }, []);
 
-  const handleChange = event => {
-    console.log('Hej!', event.target.value);
-    setUser({...user, name: event.target.value});
-  };
+  // const handleChange = event => {
+  //   console.log('Hej!', event.target.value);
+  //   setUser({...user, name: event.target.value});
+  // };
   console.log(errors);
   return (
     <div>
