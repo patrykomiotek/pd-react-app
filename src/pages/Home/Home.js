@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {Form, TextBox, Textarea} from '../../components/Form';
+import {Form, TextBox, Textarea, Select, Checkbox} from '../../components/Form';
 
 function Home() {
   const [user, setUser] = useState({
@@ -41,6 +41,17 @@ function Home() {
         </div>
         <div>
           <Textarea />
+        </div>
+        <div>
+          <Select
+            items={[
+              {value: 2, label: 'Two'},
+              {value: 3, label: 'Three'},
+            ]}
+          />
+        </div>
+        <div>
+          <Checkbox name="terms" label="I agree" />
         </div>
       </Form>
     </div>
