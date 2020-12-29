@@ -66,6 +66,33 @@ npm run eject
 * [React Hook Form](https://react-hook-form.com/)
 * [Material UI](https://material-ui.com/)
 
+### Styling
+* [BEM](http://getbem.com/introduction/)
+* [className](https://reactjs.org/docs/faq-styling.html)
+* [inline styling](https://reactjs.org/docs/dom-elements.html#style)
+* [JSS](https://cssinjs.org/)
+  * [react-jss](https://cssinjs.org/react-jss/)
+  * Adapters:
+    * [Styled-JSS](https://cssinjs.org/styled-jss) - styled-components like API
+    * [Glamor-JSS](https://github.com/dan-lee/glamor-jss/) - glamor flavored CSS with JSS under the hood
+    * [Aphrodite-JSS](https://github.com/cssinjs/aphrodite-jss/) - aphrodite like API
+* [styled-components](https://styled-components.com/)
+
+### Testing
+* [Jest](https://jestjs.io/)
+* [jsdom](https://github.com/jsdom/jsdom)
+* [Testing library](https://testing-library.com/)
+  * [queries](https://testing-library.com/docs/dom-testing-library/api-queries)
+  * [Testing playground](https://testing-playground.com/)
+  * [Testing playground Chrome Extension](https://chrome.google.com/webstore/detail/testing-playground/hejbmebodbijjdhflfknehhcgaklhano)
+* [React testing library](https://testing-library.com/docs/react-testing-library/intro/)
+* [@testing-library/jest-dom](https://github.com/testing-library/jest-dom) jest-dom provides a set of custom jest matchers that you can use to extend jest. These will make your tests more declarative, clear to read, and to maintain.
+* [@testing-library/user-event](https://github.com/testing-library/user-event) user-event tries to simulate the real events that would happen in the browser as the user interacts with it. For example, userEvent.click(checkbox) would change the state of the checkbox.
+* [React Hooks testing library](https://github.com/testing-library/react-hooks-testing-library)
+*  [Enzyme](https://enzymejs.github.io/enzyme/)
+*  [Mock Service Worker](https://github.com/mswjs/msw)
+*  [Cypress](https://www.cypress.io/)
+
 ## Create React App configuration
 
 ### Code Splitting
