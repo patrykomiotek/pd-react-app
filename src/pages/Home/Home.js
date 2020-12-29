@@ -10,6 +10,9 @@ const Input = styled.input`
   border: #2c3e50 1px solid;
   border-radius: 5px;
   padding: 4px;
+  ::placeholder {
+    color: #95a5a6;
+  }
 `;
 
 function Home() {
@@ -46,7 +49,7 @@ function Home() {
     <div>
       <h1>Hello from Home, {user.name}</h1>
       <Form>
-        <Input type="text" onChange={handleChange} />
+        <Input type="text" onChange={handleChange} placeholder="123" />
       </Form>
     </div>
   );
