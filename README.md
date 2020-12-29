@@ -63,6 +63,7 @@ npm run eject
 * [History](https://github.com/ReactTraining/history#readme)
 * [Firebase JS SDK](https://firebase.google.com/docs/reference/js)
 * [Firebase JS SDK for realtime database](https://firebase.google.com/docs/reference/js/firebase.database)
+* [Axios](https://github.com/axios/axios)
 * [React Hook Form](https://react-hook-form.com/)
 * [Material UI](https://material-ui.com/)
 
