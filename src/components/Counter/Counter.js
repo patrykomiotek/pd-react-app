@@ -1,10 +1,10 @@
 import useCounter from './useCounter';
 
-function Counter() {
+function Counter({ initialValue = 1 }) {
 
   // using property aliases
-  const { count: count1, decrement: decrement1, increment: increment1 } = useCounter(1);
-  const { count: count2, decrement: decrement2, increment: increment2 } = useCounter(13, 5);
+  const { count: count1, decrement: decrement1, increment: increment1 } = useCounter(initialValue);
+  // const { count: count2, decrement: decrement2, increment: increment2 } = useCounter(13, 5);
 
   // using properties
   // const counterData1 = useCounter(1);
@@ -19,16 +19,9 @@ function Counter() {
 
   return (
     <div>
-      <div>
-        <p>Current value: {count1}</p>
-        <button onClick={decrement1}>➖</button>
-        <button onClick={increment1}>➕</button>
-      </div>
-      <div>
-        <p>Current value: {count2}</p>
-        <button onClick={decrement2}>➖</button>
-        <button onClick={increment2}>➕</button>
-      </div>
+      <p>Current value: {count1}</p>
+      <button onClick={decrement1}>➖</button>
+      <button onClick={increment1}>➕</button>
     </div>
   );
 }

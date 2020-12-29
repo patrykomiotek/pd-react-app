@@ -11,7 +11,7 @@ const Button = forwardRef(({ badge, children, className, ...restProps }, ref) =>
     className={`Button ${className}`}
   >
     {children}
-    {badge && <span class="badge">{badge}</span>}
+    {badge && <span data-testid="button-badge" className="badge">{badge}</span>}
   </button>
 ));
 

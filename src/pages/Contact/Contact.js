@@ -63,6 +63,7 @@ function Contact() {
             onChange={handleChange} />
           <Button
             type="submit"
+            badge={10}
             ref={buttonRef}
             onMouseOver={() => buttonRef.current.style.backgroundColor = '#00f'}
             onMouseOut={() => buttonRef.current.style.backgroundColor = '#0f0'}>
