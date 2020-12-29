@@ -4,9 +4,9 @@ import {useForm} from 'react-hook-form';
 import {Form, TextBox, Textarea, Select, Checkbox} from '../../components/Form';
 
 function Home() {
-  const {register, handleSubmit} = useForm();
+  const {register, handleSubmit, errors} = useForm();
   const [user, setUser] = useState({
-    name: 'Pat§ryk',
+    name: 'Patryk',
     surname: 'O',
     age: 35,
   });
@@ -35,12 +35,14 @@ function Home() {
     console.log('Hej!', event.target.value);
     setUser({...user, name: event.target.value});
   };
+  console.log(errors);
   return (
     <div>
       <h1>Hello from Home, {user.name}</h1>
       <Form onSubmit={handleSubmit(handlePingwin)}>
         <div>
-          <TextBox name="first_name" placeholder="123" ref={register} />
+          <TextBox name="first_name" ref={register({required: true, maxLength: 20})} />
+          {errors.first_name && <span>Error!</span>}
         </div>
         <div>
           <Textarea name="bio" ref={register} />
@@ -58,6 +60,7 @@ function Home() {
         <div>
           <Checkbox name="terms" elemName="terms" label="I agree" ref={register} />
         </div>
+        <input type="submit" />
       </Form>
     </div>
   );
