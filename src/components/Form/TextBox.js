@@ -1,12 +1,31 @@
 import {forwardRef} from 'react';
 import styled from 'styled-components';
 
+import './styles.css';
 import colors from './colors';
 // <TextBox value="123" className="ala" />
 // <TextBox className="ola" value="123" className="ala" />
 
-const TextBox = forwardRef(({className, ...restProps}, ref) => {
-  return <input type="text" className={className} {...restProps} ref={ref} />;
+const TextBox = forwardRef(({name, label, errors, className, ...restProps}, ref) => {
+
+  const hasErrors = Reflect.has(errors, name);
+  const classes = `${className} ${hasErrors ? 'error' : ''}`;
+  let styles = {};
+  if (hasErrors) {
+    styles.backgroundColor = '#e74c3c';
+  }
+
+  return (
+    <div>
+      <div><label>{label}</label></div>
+      <div>
+        <input type="text" name={name} style={styles}
+          className={classes} {...restProps} ref={ref} />
+        {' '}
+        {errors[name] && <span style={{ color: '#c0392b' }}>{errors[name].message}</span>}
+      </div>
+    </div>
+  );
 });
 
 // function TextBox({className, ...restProps}) {

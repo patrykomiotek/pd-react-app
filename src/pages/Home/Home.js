@@ -43,6 +43,7 @@ function Home() {
         <div>
           <TextBox
             name="first_name"
+            label="First name"
             ref={register({
               required: 'This filed is required',
               maxLength: {
@@ -50,8 +51,22 @@ function Home() {
                 message: 'You should type max 20 characters!',
               },
             })}
+            errors={errors}
           />
-          {errors.first_name && <span>{errors.first_name.message}</span>}
+        </div>
+        <div>
+          <TextBox
+            name="last_name"
+            label="Last name"
+            ref={register({
+              required: 'This filed is required',
+              maxLength: {
+                value: 20,
+                message: 'You should type max 20 characters!',
+              },
+            })}
+            errors={errors}
+          />
         </div>
         <div>
           <Textarea name="bio" ref={register} />
