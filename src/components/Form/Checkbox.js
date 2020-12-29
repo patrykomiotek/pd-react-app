@@ -7,6 +7,7 @@ const Checkbox = forwardRef(({name, elemName, label, errors, className, ...restP
       <input
         id={elemName}
         name={name}
+        data-testid={name}
         type="checkbox"
         className={className}
         {...restProps}

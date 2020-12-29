@@ -9,7 +9,7 @@ const Textarea = forwardRef(({name, label, errors, className, ...restProps}, ref
   return (
     <div>
       <div><label>{label}</label></div>
-      <textarea name="name" className={className} {...restProps} ref={ref} />
+      <textarea data-testid={name} name="name" className={className} {...restProps} ref={ref} />
       {errors && errors[name] && <span style={{ color: '#c0392b' }}>{errors[name].message}</span>}
     </div>
   );

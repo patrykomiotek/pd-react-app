@@ -9,7 +9,7 @@ const Select = forwardRef(({name, label, items, errors, className, ...restProps}
   return (
     <div>
       <div><label>{label}</label></div>
-      <select name={name} className={className} {...restProps} ref={ref}>
+      <select data-testid={name} name={name} className={className} {...restProps} ref={ref}>
         {items.map(elem => (
           <option key={elem.value} value={elem.value}>
             {elem.label}

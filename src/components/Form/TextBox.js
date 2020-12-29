@@ -19,7 +19,7 @@ const TextBox = forwardRef(({name, label, errors, className, ...restProps}, ref)
     <div>
       <div><label>{label}</label></div>
       <div>
-        <input type="text" name={name} style={styles}
+        <input data-testid={name} type="text" name={name} style={styles}
           className={classes} {...restProps} ref={ref} />
         {' '}
         {errors && errors[name] && <span style={{ color: '#c0392b' }}>{errors[name].message}</span>}
