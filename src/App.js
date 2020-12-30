@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
 import './App.css';
 import Menu, { Link } from './components/Menu';
@@ -52,33 +53,35 @@ Auth.displayName = 'Auth';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Menu>
-          <Link to="/">Home</Link>
-          <Link to="/users">Users</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/counter">Counter</Link>
-          <Link to="/tickets">Tickets</Link>
-        </Menu>
+      <Provider store={store}>
+        <Router>
+          <Menu>
+            <Link to="/">Home</Link>
+            <Link to="/users">Users</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/counter">Counter</Link>
+            <Link to="/tickets">Tickets</Link>
+          </Menu>
+          <hr />
+          <Switch>
+            <Auth.Provider value={authData}>
+              <SecureRoute path="/users/:bizon/update" Component={UserUpdate} />
+              <SecureRoute path="/users/:bizon" Component={UserDetails} />
+              <Theme.Provider value={themes.red}>
+                <SecureRoute path="/users" Component={Users} />
+              </Theme.Provider>
+              <SecureRoute path="/contact" Component={Contact} />
+              <Theme.Provider value={themes.blue}>
+                <SecureRoute path="/counter" Component={Counter} />
+              </Theme.Provider>
+              <SecureRoute path="/tickets" Component={Tickets} />
+              <Route path="/" exact><Home /></Route>
+            </Auth.Provider>
+          </Switch>
+        </Router>
         <hr />
-        <Switch>
-          <Auth.Provider value={authData}>
-            <SecureRoute path="/users/:bizon/update" Component={UserUpdate} />
-            <SecureRoute path="/users/:bizon" Component={UserDetails} />
-            <Theme.Provider value={themes.red}>
-              <SecureRoute path="/users" Component={Users} />
-            </Theme.Provider>
-            <SecureRoute path="/contact" Component={Contact} />
-            <Theme.Provider value={themes.blue}>
-              <SecureRoute path="/counter" Component={Counter} />
-            </Theme.Provider>
-            <SecureRoute path="/tickets" Component={Tickets} />
-            <Route path="/" exact><Home /></Route>
-          </Auth.Provider>
-        </Switch>
-      </Router>
-      <hr />
-      <Footer />
+        <Footer />
+      </Provider>
     </div>
   );
 }
