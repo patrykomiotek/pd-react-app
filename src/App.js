@@ -28,6 +28,13 @@ const themes = {
 export const Theme = createContext(themes.red);
 Theme.displayName = 'Theme';
 
+const authData = {
+  isLogged: true,
+  user: {}
+};
+export const Auth = createContext(authData);
+Auth.displayName = 'Auth';
+
 function App() {
   return (
     <div className="App">
@@ -40,20 +47,18 @@ function App() {
         </Menu>
         <hr />
         <Switch>
-          <Route path="/users/:bizon/update"><UserUpdate /></Route>
-          <Route path="/users/:bizon"><UserDetails /></Route>
-          <Route path="/users">
+          <Auth.Provider value={authData}>
+            <SecureRoute path="/users/:bizon/update" Component={UserUpdate} />
+            <SecureRoute path="/users/:bizon" Component={UserDetails} />
             <Theme.Provider value={themes.red}>
-              <Users />
+              <SecureRoute path="/users" Component={Users} />
             </Theme.Provider>
-          </Route>
-          <SecureRoute path="/contact" Component={Contact} />
-          <Route path="/counter">
+            <SecureRoute path="/contact" Component={Contact} />
             <Theme.Provider value={themes.blue}>
-              <Counter />
+              <SecureRoute path="/counter" Component={Counter} />
             </Theme.Provider>
-          </Route>
-          <Route path="/" exact><Home /></Route>
+            <Route path="/" exact><Home /></Route>
+          </Auth.Provider>
         </Switch>
       </Router>
       <hr />

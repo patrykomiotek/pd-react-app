@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import { Route } from 'react-router-dom';
 
+import { Auth } from '../../App';
+
 function SecureRoute({ Component, ...restProps }) {
-  // console.log('Component: ', Component);
-  const isLogged = true;
+  const auth = useContext(Auth);
+  const isLogged = auth.isLogged;
 
   if (isLogged) {
     return (
