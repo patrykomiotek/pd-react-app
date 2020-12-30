@@ -24,6 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "npm run test -- --watchAll=false",
+    "test:integration": "cypress open",
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src/**/*.js",
     "lint:css": "stylelint ./src/**/*.css",
@@ -48,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.3",
+    "cypress": "^6.2.0",
     "husky": "^5.0.6",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
