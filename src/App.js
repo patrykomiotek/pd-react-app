@@ -27,10 +27,11 @@ const store = createStore(
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-store.subscribe(() => console.log(store.getState()));
-
-store.dispatch({type: 'tickets/load'});
-store.dispatch({type: 'tickets/add', payload: {id: 12, title: 'Ticket #abc', description: 'ssss'}});
+// store.subscribe(() => console.log(store.getState()));
+// store.dispatch({type: 'tickets/load'});
+// store.dispatch({
+//   type: 'tickets/add', payload: {id: 12, title: 'Ticket #abc', description: 'ssss'}
+// });
 // store.dispatch({type: 'tickets/reset'});
 
 const themes = {
