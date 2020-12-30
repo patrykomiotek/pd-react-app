@@ -30,8 +30,8 @@ const store = createStore(
 store.subscribe(() => console.log(store.getState()));
 
 store.dispatch({type: 'tickets/load'});
-store.dispatch({type: 'tickets/add', payload: {id: 1, name: 'Ticket #abc', description: 'ssss'}});
-store.dispatch({type: 'tickets/reset'});
+store.dispatch({type: 'tickets/add', payload: {id: 12, title: 'Ticket #abc', description: 'ssss'}});
+// store.dispatch({type: 'tickets/reset'});
 
 const themes = {
   blue: {
