@@ -13,8 +13,9 @@ function Home() {
     age: 35,
   });
   useEffect(() => {
-    const user = {first_name: 'Ola', last_name: 'Kowalska'};
-    Object.keys(user).forEach(prop => setValue(prop, user[prop]));
+    // populating form
+    // const user = {first_name: 'Ola', last_name: 'Kowalska'};
+    // Object.keys(user).forEach(prop => setValue(prop, user[prop]));
     // setValue('first_name', 'Alandnfnsdnfsnfnsdnfnsdnfnsdnfsdnfnsnsndf', { shouldValidate: true })
   }, [setValue]);
   const handlePingwin = data => console.log(data);
