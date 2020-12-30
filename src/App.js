@@ -1,10 +1,10 @@
 import { createContext } from 'react';
-
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { createStore, combineReducers } from 'redux';
 
 import './App.css';
 import Menu, { Link } from './components/Menu';
@@ -16,7 +16,20 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Counter from './components/Counter';
 import Tickets from './pages/Tickets';
+import ticketReducer from './pages/Tickets/duck';
 import SecureRoute from './components/hoc/SecureRoute';
+
+// TODO: move me somewhere else
+const store = createStore(
+  combineReducers({
+    tickets: ticketReducer
+  })
+);
+store.subscribe(() => console.log(store.getState()));
+
+store.dispatch({type: 'tickets/load'});
+store.dispatch({type: 'tickets/add', payload: {id: 1, name: 'Ticket #abc', description: 'ssss'}});
+store.dispatch({type: 'tickets/reset'});
 
 const themes = {
   blue: {

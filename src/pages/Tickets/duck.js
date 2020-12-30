@@ -25,7 +25,7 @@ const mockData = [
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD:
-      return { ...state, data: state.data.concat([action.payload]) }; // [] [{id,name,title}]
+      return { ...state, data: [...state.data, action.payload] }; // [] [{id,name,title}]
     case LOAD:
       return { ...state, data: mockData };
     case RESET:
