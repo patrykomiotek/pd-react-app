@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import useCounter from './useCounter';
 import { Theme } from '../../App';
 
@@ -18,17 +20,27 @@ function Counter({ initialValue = 1 }) {
   // const decrement2 = counterData2.decrement;
   // const increment2 = counterData2.increment;
 
+  const theme = useContext(Theme);
+
   return (
-    <Theme.Consumer>
-      {values => (
-        <div>
-          <p style={{ color: values.color }}>Current value: {count1}</p>
-          <button onClick={decrement1}>➖</button>
-          <button onClick={increment1}>➕</button>
-        </div>
-      )}
-    </Theme.Consumer>
+    <div>
+      <p style={{ color: theme.color }}>Current value: {count1}</p>
+      <button onClick={decrement1}>➖</button>
+      <button onClick={increment1}>➕</button>
+    </div>
   );
+
+  // return (
+  //   <Theme.Consumer>
+  //     {values => (
+  //       <div>
+  //         <p style={{ color: values.color }}>Current value: {count1}</p>
+  //         <button onClick={decrement1}>➖</button>
+  //         <button onClick={increment1}>➕</button>
+  //       </div>
+  //     )}
+  //   </Theme.Consumer>
+  // );
 }
 
 export default Counter;

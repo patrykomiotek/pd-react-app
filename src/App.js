@@ -41,7 +41,11 @@ function App() {
         <Switch>
           <Route path="/users/:bizon/update"><UserUpdate /></Route>
           <Route path="/users/:bizon"><UserDetails /></Route>
-          <Route path="/users"><Users /></Route>
+          <Route path="/users">
+            <Theme.Provider value={themes.red}>
+              <Users />
+            </Theme.Provider>
+          </Route>
           <Route path="/contact"><Contact /></Route>
           <Route path="/counter">
             <Theme.Provider value={themes.blue}>
