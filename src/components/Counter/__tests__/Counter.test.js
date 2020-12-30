@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import Counter from '../Counter';
 
 describe('Counter component', () => {
-  test('should display initial value', () => {
+  test('should display default value', () => {
     // const wrapper = render(<Counter />);
     render(<Counter />);
     // screen.debug();
@@ -18,6 +18,15 @@ describe('Counter component', () => {
     userEvent.click(screen.getByRole('button', { name: /➕/i }));
     // screen.debug()
     expect(screen.getByText('Current value: 2')).toBeInTheDocument();
+
+  });
+
+  test('should render initial value', () => {
+    render(<Counter initialValue={123} />);
+
+    expect(screen.getByText('Current value: 123')).toBeInTheDocument();
+    userEvent.click(screen.getByRole('button', { name: /➕/i }));
+    expect(screen.getByText('Current value: 124')).toBeInTheDocument();
 
   });
 });
