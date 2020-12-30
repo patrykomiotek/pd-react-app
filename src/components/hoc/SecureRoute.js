@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { React, useContext } from 'react';
 import { Route } from 'react-router-dom';
 
 import { Auth } from '../../App';
@@ -17,5 +17,19 @@ function SecureRoute({ Component, ...restProps }) {
 
   return 'You have to log in';
 }
+
+// function SecureRouteHoc(WrappedComponent) {
+
+//   return class extends React.Component {
+//     render () {
+
+//       return (
+//         <Route {...this.props}>
+//           <WrappedComponent />
+//         </Route>
+//       );
+//     }
+//   }
+// }
 
 export default SecureRoute;
