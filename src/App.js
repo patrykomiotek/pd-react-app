@@ -15,6 +15,7 @@ import UserUpdate from './pages/Users/UserUpdate';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Counter from './components/Counter';
+import Tickets from './pages/Tickets';
 import SecureRoute from './components/hoc/SecureRoute';
 
 const themes = {
@@ -44,6 +45,7 @@ function App() {
           <Link to="/users">Users</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/counter">Counter</Link>
+          <Link to="/tickets">Tickets</Link>
         </Menu>
         <hr />
         <Switch>
@@ -57,6 +59,7 @@ function App() {
             <Theme.Provider value={themes.blue}>
               <SecureRoute path="/counter" Component={Counter} />
             </Theme.Provider>
+            <SecureRoute path="/tickets" Component={Tickets} />
             <Route path="/" exact><Home /></Route>
           </Auth.Provider>
         </Switch>
