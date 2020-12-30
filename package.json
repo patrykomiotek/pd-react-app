@@ -18,6 +18,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "postinstall": "husky install",
     "start": "react-scripts start",
     "prebuild": "npm run lint",
     "build": "react-scripts build",
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "husky": "^5.0.6",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
   }
