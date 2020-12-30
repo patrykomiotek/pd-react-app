@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { add, load, reset } from './duck';
+import { add, load, reset, fetchTickets } from './duck';
 
 const mockTicket = { id: 6, title: 'Halo halo', description: 'Lorem ipsum'};
 
@@ -8,6 +8,7 @@ function Tickets(props) {
   return (
     <div className="tickets">
       <div>
+        <button onClick={props.fetchTickets}>Fetch</button>
         <button onClick={props.load}>Load</button>
         <button onClick={() => props.add(mockTicket)}>Add</button>
         <button onClick={props.reset}>Reset</button>
@@ -32,7 +33,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   add,
   load,
-  reset
+  reset,
+  fetchTickets
 };
 
 // const mapDispatchToProps = (dispatch) => ({
