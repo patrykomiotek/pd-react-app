@@ -23,6 +23,7 @@
     "prebuild": "npm run lint",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "npm run test -- --watchAll=false",
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src/**/*.js",
     "lint:css": "stylelint ./src/**/*.css",
