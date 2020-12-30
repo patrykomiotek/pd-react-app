@@ -1,4 +1,5 @@
 import useCounter from './useCounter';
+import { Theme } from '../../App';
 
 function Counter({ initialValue = 1 }) {
 
@@ -18,11 +19,15 @@ function Counter({ initialValue = 1 }) {
   // const increment2 = counterData2.increment;
 
   return (
-    <div>
-      <p>Current value: {count1}</p>
-      <button onClick={decrement1}>➖</button>
-      <button onClick={increment1}>➕</button>
-    </div>
+    <Theme.Consumer>
+      {values => (
+        <div>
+          <p style={{ color: values.color }}>Current value: {count1}</p>
+          <button onClick={decrement1}>➖</button>
+          <button onClick={increment1}>➕</button>
+        </div>
+      )}
+    </Theme.Consumer>
   );
 }
 

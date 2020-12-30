@@ -1,3 +1,5 @@
+import { createContext } from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +15,17 @@ import UserUpdate from './pages/Users/UserUpdate';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Counter from './components/Counter';
+
+const themes = {
+  blue: {
+    color: 'blue'
+  },
+  red: {
+    color: 'red'
+  }
+};
+export const Theme = createContext(themes.red);
+Theme.displayName = 'Theme';
 
 function App() {
   return (
@@ -30,7 +43,11 @@ function App() {
           <Route path="/users/:bizon"><UserDetails /></Route>
           <Route path="/users"><Users /></Route>
           <Route path="/contact"><Contact /></Route>
-          <Route path="/counter"><Counter /></Route>
+          <Route path="/counter">
+            <Theme.Provider value={themes.blue}>
+              <Counter />
+            </Theme.Provider>
+          </Route>
           <Route path="/" exact><Home /></Route>
         </Switch>
       </Router>
