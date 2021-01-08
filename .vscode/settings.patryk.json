@@ -4,7 +4,7 @@
   "editor.detectIndentation": true,
   "editor.fontLigatures": false,
   "editor.rulers": [100],
-  "editor.renderWhitespace": "boundary",
+  "editor.renderIndentGuides": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.suggestSelection": "recentlyUsed",
