@@ -15,7 +15,7 @@ npm run eject
 
 ## Useful links
 
-### Before you will begin with React
+### Before you start with React
 * [JavaScript to know for React](https://kentcdodds.com/blog/javascript-to-know-for-react)
 * [What's new JavaScript (ES2020)](https://www.freecodecamp.org/news/javascript-new-features-es2020/)
 * [NPX](https://github.com/npm/npx#readme)
