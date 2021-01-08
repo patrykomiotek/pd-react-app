@@ -22,13 +22,16 @@
   },
   "scripts": {
     "postinstall": "husky install",
-    "start": "react-scripts start",
+    "start": "cross-env PORT=3001 react-scripts start",
     "prebuild": "npm run lint",
     "build": "react-scripts build",
+    "update": "npx msw init public",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
     "test": "react-scripts test",
-    "test:ci": "npm run test -- --watchAll=false",
-    "test:integration": "cypress open",
-    "test:integration:ci": "cypress run",
+    "test:unit": "npm run test -- --watchAll=false",
+    "test:integration": "start-server-and-test start http://localhost:3001 cy:run",
+    "test:ci": "cross-env CI=true npm run test:unit && npm run test:integration",
     "eject": "react-scripts eject",
     "lint:js": "eslint ./src/**/*.js",
     "lint:css": "stylelint ./src/**/*.css",
@@ -54,10 +57,12 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^7.0.3",
+    "cross-env": "^7.0.3",
     "cypress": "^6.2.0",
     "eslint-plugin-cypress": "^2.11.2",
     "husky": "^5.0.6",
     "msw": "^0.24.4",
+    "start-server-and-test": "^1.11.7",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
   }

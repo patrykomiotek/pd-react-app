@@ -1,6 +1,6 @@
 describe('Form testing', () => {
   it('should fill form', () => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
 
     const firstNameField = cy.findByTestId('first_name');
     firstNameField.type('Mruczysław 🐈');

@@ -1,5 +1,4 @@
 import api from '../../api';
-import { objectToArray } from '../../utils';
 
 const ADD = 'tickets/add';
 const LOAD = 'tickets/load';
@@ -15,7 +14,8 @@ export const reset = () => ({ type: RESET });
 export const fetchTickets = () => {
   return (dispatch) => {
     // TODO: change api to use tickets
-    api.get('/tickets').then((response) => dispatch(load(objectToArray(response.data))));
+    // it uses mocked ticket data instead of real api
+    api.get('/tickets').then((response) => dispatch(load(response.data)));
   };
 };
 
@@ -26,11 +26,11 @@ const INITIAL_STATE = {
 };
 
 // TODO: remove me
-const mockData = [
-  {id: 1, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
-  {id: 2, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
-  {id: 3, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
-];
+// const mockData = [
+//   {id: 1, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
+//   {id: 2, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
+//   {id: 3, title: 'Nie działa drukarka', description: 'Lorem ipsum....'},
+// ];
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
